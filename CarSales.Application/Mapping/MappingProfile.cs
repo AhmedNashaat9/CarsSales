@@ -16,6 +16,7 @@ namespace CarSales.Application.Mapping
         {
             CreateMap<Car, CarVM>();
             CreateMap<CarIM, Car>();
+            CreateMap<UpdateCarIM, Car>();
 
         }
     }

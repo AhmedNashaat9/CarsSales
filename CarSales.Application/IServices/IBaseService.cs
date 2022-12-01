@@ -13,7 +13,7 @@ namespace CarSales.Application.IServices
     {
         string Create(CarIM entity);
         string Delete(int ID );
-        string Update(Car entity);
+        string Update(int id,CarIM entity);
         CarVM? GetById(int ID);
         List<CarVM> GetAll();
     }

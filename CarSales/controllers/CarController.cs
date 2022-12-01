@@ -17,14 +17,15 @@ namespace CarSales.Api.controllers
             _productService = productService;
         }
 
-        [HttpPost("Post")]
-        
+        [HttpPost]
+
         public ActionResult<string> Create(CarIM car)
         {
             return Ok(_productService.Create(car));
         }
-        [HttpGet]
-        public ActionResult<CarVM> Get()
+
+        [HttpGet("list")]
+        public ActionResult<List<CarVM>> Get()
         {
             var result = _productService.GetAll();
             if (result == null)
@@ -32,7 +33,16 @@ namespace CarSales.Api.controllers
 
             return Ok(result);
         }
-        [HttpDelete]
+        [HttpGet("{id}")]
+        public ActionResult<CarVM> GetById(int id)
+        {
+            var result = _productService.GetById(id);
+            if (result == null)
+                return NotFound();
+
+            return Ok(result);
+        }
+        [HttpDelete("{id}")]
         public ActionResult<string> Delete (int ID)
         {
             var result = _productService.Delete(ID);
@@ -41,12 +51,11 @@ namespace CarSales.Api.controllers
 
             return Ok(result);
         }
-        [HttpPut]
-        public ActionResult<string> Update(Car car)
+        [HttpPut("{id}")]
+        public ActionResult<string> Update(int id,CarIM car)
         {
-            if (car.Id == null)
-                return NotFound();
-            var result = _productService.Update(car);
+            
+            var result = _productService.Update(id,car);
             
             return Ok(result);
         }

@@ -44,9 +44,15 @@ namespace CarSales.Application.Services
            return _mapper.Map<CarVM>(_repository.GetById(ID));
         }
 
-       public string Update(Car entity)
+       public string Update(int id,CarIM entity) 
         {
-           return _repository.Update(_mapper.Map<Car>(entity));
+            var cardb = _repository.GetById(id);
+            if (cardb is null)
+                return null;
+            cardb.Name = entity.Name;
+            cardb.Type = entity.Type;
+            cardb.price = entity.price;
+           return _repository.Update(cardb);
         }
     }
 }
