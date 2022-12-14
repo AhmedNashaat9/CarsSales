@@ -28,8 +28,11 @@ namespace CarSales.Infrastructure.Repository
 
         public List<Car>GetByType(string type)
         {
-            return _dbContext.Cars.Where(c=>c.Type==type).ToList();
-            
+          // return _dbContext.Cars.Where(c=>c.Type==type).ToList();
+            var query= from c in _dbContext.Cars
+                       where c.Type == type
+                       select c;
+            return query.ToList();
         }
     }
 }
