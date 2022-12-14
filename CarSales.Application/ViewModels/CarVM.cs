@@ -8,10 +8,11 @@ namespace CarSales.Application.ViewModels
 {
     public class CarVM
     {
-
-        public int id { get; set; }
+        public int Id { get; set; }
         public string Name { get; set; }
         public string Type { get; set; }
-        public double price { get; set; }
+        public string Color { get; set; }
+        public double Price { get; set; }
+        
     }
 }

@@ -13,5 +13,6 @@ namespace SalesCore.Application.IRepository
         string Update(T entity);
         T? GetById(int entity);
         List<T> GetAll();
+
     }
 }

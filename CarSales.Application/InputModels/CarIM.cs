@@ -10,6 +10,9 @@ namespace CarSales.Application.InputModels
     {
         public string Name { get; set; }
         public string Type { get; set; }
+        public string color { get; set; }
         public double price { get; set; }
+        
+
     }
 }

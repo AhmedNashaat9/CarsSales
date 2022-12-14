@@ -1,8 +1,11 @@
 ﻿using CarSales.Application.InputModels;
 using CarSales.Application.IServices;
+using CarSales.Application.Services;
 using CarSales.Application.ViewModels;
 using CarSales.Core.Models;
+using CarSales.Infrastructure.Repository;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace CarSales.Api.controllers
 {
@@ -10,24 +13,28 @@ namespace CarSales.Api.controllers
     [ApiController]
     public class CarController : ControllerBase
     {
-        private readonly IBaseService _productService;
+        private readonly IBaseService _BaseService;
+        private readonly ICarService _CarService;
+        private readonly IPlateService _PlateService;
 
-        public CarController(IBaseService productService)
+        public CarController(IBaseService BaseService,ICarService CarService, IPlateService plateService)
         {
-            _productService = productService;
+            _BaseService = BaseService;
+            _CarService = CarService;
+            _PlateService = plateService;
         }
 
+       
         [HttpPost]
-
-        public ActionResult<string> Create(CarIM car)
+        public ActionResult<string> Create( CarIM car)
         {
-            return Ok(_productService.Create(car));
+            return Ok(_BaseService.Create(car));
         }
 
         [HttpGet("list")]
         public ActionResult<List<CarVM>> Get()
         {
-            var result = _productService.GetAll();
+            var result = _BaseService.GetAll();
             if (result == null)
                 return NotFound();
 
@@ -36,16 +43,16 @@ namespace CarSales.Api.controllers
         [HttpGet("{id}")]
         public ActionResult<CarVM> GetById(int id)
         {
-            var result = _productService.GetById(id);
+            var result = _BaseService.GetById(id);
             if (result == null)
                 return NotFound();
 
             return Ok(result);
         }
         [HttpDelete("{id}")]
-        public ActionResult<string> Delete (int ID)
+        public ActionResult<string> DeletePlate (int ID)
         {
-            var result = _productService.Delete(ID);
+            var result = _BaseService.Delete(ID);
             if (result == null)
                 return NotFound();
 
@@ -55,9 +62,23 @@ namespace CarSales.Api.controllers
         public ActionResult<string> Update(int id,CarIM car)
         {
             
-            var result = _productService.Update(id,car);
+            var result = _BaseService.Update(id,car);
             
             return Ok(result);
+        }
+        [HttpGet("color")]
+
+        public ActionResult<string> GetColor(int id)
+        {
+
+            return _CarService.GetColor(id);
+        }
+        [HttpGet("type")]
+
+        public ActionResult<List<CarVM>> GetByType(string type)
+        {
+
+            return _CarService.GetByType(type);
         }
     }
 }

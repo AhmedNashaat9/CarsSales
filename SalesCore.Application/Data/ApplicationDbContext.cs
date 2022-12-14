@@ -16,11 +16,21 @@ namespace SalesCore.Application.Data
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseSqlServer("Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=CarSalesDB;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
-            //Data Source=.;Initial Catalog=Sales;Integrated Security=True
-
             base.OnConfiguring(optionsBuilder);
         }
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Plate>()
+    .HasIndex((c=>c.FrontPlate))
+        .IsUnique();
+            modelBuilder.Entity<Plate>()
+    .HasIndex((c => c.RearPlate))
+        .IsUnique();
+            modelBuilder.Entity<InsuranceContract>().HasKey(I => I.InsuranceNumber);
+        }
         public DbSet<Car> Cars { get; set; }
+        public DbSet<InsuranceContract> insuranceContracts  { get; set; }
+        public DbSet<Plate> plates { get; set; }
 
     }
 }

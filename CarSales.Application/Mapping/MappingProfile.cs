@@ -14,9 +14,14 @@ namespace CarSales.Application.Mapping
     {
         public MappingProfile()
         {
-            CreateMap<Car, CarVM>();
+            CreateMap<Car, CarVM>().ReverseMap();
+
             CreateMap<CarIM, Car>();
-            CreateMap<UpdateCarIM, Car>();
+            CreateMap<PlateIM, Plate>();
+            CreateMap<Plate, PlateVm>();
+            CreateMap<InsuranceContract, InsuranceVM>();
+            CreateMap<InsuranceIM, InsuranceContract>();
+
 
         }
     }

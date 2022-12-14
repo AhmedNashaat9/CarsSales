@@ -24,8 +24,11 @@ namespace CarSales.Application.Services
         }
         public string Create(CarIM entity)
         {
+
+           
             return _repository.Create(_mapper.Map<Car>(entity));
         }
+      
 
         public string Delete(int ID)
         {
@@ -51,7 +54,8 @@ namespace CarSales.Application.Services
                 return null;
             cardb.Name = entity.Name;
             cardb.Type = entity.Type;
-            cardb.price = entity.price;
+            cardb.Price = entity.price;
+            cardb.Color = entity.color;
            return _repository.Update(cardb);
         }
     }

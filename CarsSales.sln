@@ -3,13 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.3.32929.385
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarSales.Core", "CarSales.Core\CarSales.Core.csproj", "{304DE2AA-AC2D-4F8A-B97F-2B54AE605BFB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CarSales.Core", "CarSales.Core\CarSales.Core.csproj", "{304DE2AA-AC2D-4F8A-B97F-2B54AE605BFB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarSales.Application", "CarSales.Application\CarSales.Application.csproj", "{9FB837F7-992D-4253-BC3A-24BA10156695}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CarSales.Application", "CarSales.Application\CarSales.Application.csproj", "{9FB837F7-992D-4253-BC3A-24BA10156695}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SalesCore.Infrastructure", "SalesCore.Application\SalesCore.Infrastructure.csproj", "{E2E4659C-4152-409B-A756-DF60CFB9A24A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CarSales.Infrastructure", "SalesCore.Application\CarSales.Infrastructure.csproj", "{E2E4659C-4152-409B-A756-DF60CFB9A24A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarSales.Api", "CarSales\CarSales.Api.csproj", "{0A055AD5-2D8F-4A10-8CE3-0C23CDD8D96C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CarSales.Api", "CarSales\CarSales.Api.csproj", "{0A055AD5-2D8F-4A10-8CE3-0C23CDD8D96C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarSalesUnitTest", "CarSalesUnitTest\CarSalesUnitTest.csproj", "{383B827A-8DFF-4E43-9268-4CEF7F772498}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{0A055AD5-2D8F-4A10-8CE3-0C23CDD8D96C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0A055AD5-2D8F-4A10-8CE3-0C23CDD8D96C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0A055AD5-2D8F-4A10-8CE3-0C23CDD8D96C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{383B827A-8DFF-4E43-9268-4CEF7F772498}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{383B827A-8DFF-4E43-9268-4CEF7F772498}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{383B827A-8DFF-4E43-9268-4CEF7F772498}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{383B827A-8DFF-4E43-9268-4CEF7F772498}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -39,7 +39,8 @@ namespace SalesCore.Application.Repository
         }
         public T? GetById(int model)
         {
-            return _dbContext.Set<T>().Find(model);
+            var x=  _dbContext.Set<T>().Find(model);
+            return x;
 
         }
         public List<T> GetAll()
@@ -47,6 +48,5 @@ namespace SalesCore.Application.Repository
             return _dbContext.Set<T>().ToList();
         }
 
-       
     }
 }
